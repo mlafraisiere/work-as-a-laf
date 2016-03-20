@@ -1,0 +1,19 @@
+separate parameters with semicolon ' '
+Server: server where the sql is installed and running
+DatabaseName: name of the DB on the server
+UserName: user to authenticate to the DB (if blank uses win authentication)
+Password: pass to authenticate to the DB
+TimeOut: a number for the time out of transaction to the DB. Greater than 0.
+Table: Name of table to store binary objects in. Name will include schema and if reserved name must contain '['.
+Mode: 'S' or 'A' (S)napshot or (A)ppend. If snapshot then table is truncated prior to load. If append then data is appended. If table does not exist then process creates it.
+DirectoryRead: Source directory where the files to laod are. if contains spaces sorround with quotes ""
+SubDirs: 'Y' or 'N'.
+Filter: Any single one of these could be used :  *.* or testfile.xls or *.xl or others)
+PostAction: 'N' or 'D', 'M'. (N) none (D) elete or (M)ove.
+MoveDir: Only needed if above is ‘M’, if postAction is 'M' this cannot be empty. if directory is not found it will be created when postAction is 'M'  if contains spaces sorround with quotes ""
+LogFile: full path and name for the log file. If direcotry is not found it will be created. if file not exists will be created. It will append to the end of the file. Will require manual deletion from time to time. if contains spaces sorround with quotes ""
+
+Example:
+"binaryloader.exe Serverluc-app-01 DatabaseNameLMIGDevCurrentBipan UserNamelmigadmin Passwordlmigadmin01! TimeOut60 Table[Data].[myfiles] ModeA Directory"C:\Temp\New folder\from" SubDirsN Filter*.jpg PostActionM MoveDir"C:\Temp\New folder\to" LogFile"C:\temp\nee\Log.txt""
+
+C:\Databases\Blob\BinaryLoader.exe Serverlocalhost,1437 DatabaseNameBlobStorage UserName Password TimeOut0 Tabledbo.BLOB_CSV ModeA Directory"C:\Data\Input" SubDirsN Filter*.csv PostActionM MoveDir"C:\Data\Output" LogFile"C:\Data\Logs\Logs.txt"
