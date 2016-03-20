@@ -1,6 +1,5 @@
 USE BlobStorage
 GO
-/****** Object:  Table [dbo].[LMIG_GTR_BLOB]    Script Date: 03/20/2016 15:35:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
